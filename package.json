@@ -1,0 +1,33 @@
+{
+  "name": "puppeteer-render-text",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "transitive-bullshit/puppeteer-render-text",
+  "author": "Travis Fischer <travis@automagical.ai>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "update-markdown-jsdoc",
+    "test": "ava -v && standard"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "puppeteer",
+    "github"
+  ],
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "fs-extra": "^6.0.1",
+    "rmfr": "^2.0.0",
+    "standard": "^11.0.0",
+    "tempy": "^0.2.1",
+    "update-markdown-jsdoc": "^1.0.2"
+  },
+  "dependencies": {
+    "css-in-js-utils": "^2.0.1",
+    "ow": "^0.6.0",
+    "puppeteer": "^1.4.0"
+  }
+}
