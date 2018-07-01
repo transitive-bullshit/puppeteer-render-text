@@ -1,10 +1,18 @@
 'use strict'
 
-const puppeteer = require('puppeteer')
+const fs = require('fs')
 const ow = require('ow')
+const path = require('path')
+const puppeteer = require('puppeteer')
 
 const { cssifyObject } = require('css-in-js-utils')
-const observer = '<script src="https://storage.googleapis.com/automagical-assets-prod/fontfaceobserver.standalone.js"></script>'
+
+const observerScript = fs.readFileSync(path.join(__dirname, 'lib', 'fontfaceobserver.standalone.js'), 'utf8')
+const observer = `
+<script>
+  ${observerScript}
+</script>
+`
 
 module.exports = async (opts) => {
   const {
@@ -31,7 +39,7 @@ module.exports = async (opts) => {
   const fontHeader = loadFontFamily
     ? observer : (
       loadGoogleFont ? `
-      <script src="https://storage.googleapis.com/automagical-assets-prod/fontfaceobserver.standalone.js"></script>
+      ${observer}
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=${fontFamily.replace(/ /g, '+')}">
     ` : ''
     )
@@ -55,15 +63,18 @@ module.exports = async (opts) => {
 
 body {
   background: transparent;
+
   ${width ? 'max-width: ' + width + 'px;' : ''}
   ${height ? 'max-height: ' + height + 'px;' : ''}
-  overflow: hidden;
 
-  ${cssifyObject(style)}
+  overflow: hidden;
 }
 
 .text {
-  padding: 8px;
+  display: inline-block;
+  ${width ? '' : 'white-space: nowrap;'}
+
+  ${cssifyObject(style)}
 }
 
   ${inject.style || ''}
@@ -88,12 +99,9 @@ ${inject.body || ''}
 </html>
 `
 
-  // TODO: TEMP
-  // TODO: TEMP
+  // testing
   const fs = require('fs')
   fs.writeFileSync('test.html', html)
-  // TODO: TEMP
-  // TODO: TEMP
 
   const browser = opts.browser || await puppeteer.launch({
     args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
@@ -103,10 +111,11 @@ ${inject.body || ''}
   page.on('console', console.log)
   page.on('error', console.error)
 
-  const viewport = { deviceScaleFactor: 1 }
-  if (width) viewport.width = width
-  if (height) viewport.height = height
-  // await page.setViewport(viewport)
+  await page.setViewport({
+    deviceScaleFactor: 1,
+    width: width || 640,
+    height: height || 480
+  })
   await page.setContent(html)
   await page.waitForSelector('.ready')
 
@@ -118,4 +127,6 @@ ${inject.body || ''}
   })
   await textHandle.dispose()
   await browser.close()
+
+  return html
 }
