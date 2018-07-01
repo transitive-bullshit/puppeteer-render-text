@@ -1,7 +1,7 @@
 {
   "name": "puppeteer-render-text",
   "version": "0.0.0",
-  "description": "",
+  "description": "Robust text + html renderer using headless chrome transparent screenshots.",
   "main": "index.js",
   "repository": "transitive-bullshit/puppeteer-render-text",
   "author": "Travis Fischer <travis@automagical.ai>",
@@ -19,16 +19,15 @@
   ],
   "devDependencies": {
     "ava": "^0.25.0",
-    "fs-extra": "^6.0.1",
     "rmfr": "^2.0.0",
     "sharp": "^0.20.5",
     "standard": "^11.0.0",
     "tempy": "^0.2.1",
-    "update-markdown-jsdoc": "^1.0.2"
+    "update-markdown-jsdoc": "^1.0.6"
   },
   "dependencies": {
     "css-in-js-utils": "^2.0.1",
     "ow": "^0.6.0",
-    "puppeteer": "^1.4.0"
+    "puppeteer": "^1.5.0"
   }
 }
