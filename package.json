@@ -15,7 +15,15 @@
   },
   "keywords": [
     "puppeteer",
-    "github"
+    "render",
+    "text",
+    "html",
+    "imagemagick",
+    "pango",
+    "font",
+    "image",
+    "png",
+    "fontfaceobserver"
   ],
   "devDependencies": {
     "ava": "^0.25.0",
