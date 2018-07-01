@@ -106,6 +106,7 @@ Type: `function (opts): Promise`
 ## Related
 
 -   [puppeteer](https://github.com/GoogleChrome/puppeteer) - Headless Chrome Node API.
+-   [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) - Curated list of awesome puppeteer resources.
 
 ## License
 
