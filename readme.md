@@ -1,6 +1,6 @@
 # puppeteer-render-text
 
-> Robust text + html renderer using headless chrome transparent screenshots.
+> Robust text renderer using headless chrome.
 
 [![NPM](https://img.shields.io/npm/v/puppeteer-render-text.svg)](https://www.npmjs.com/package/puppeteer-render-text) [![Build Status](https://travis-ci.com/transitive-bullshit/puppeteer-render-text.svg?branch=master)](https://travis-ci.com/transitive-bullshit/puppeteer-render-text) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
