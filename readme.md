@@ -32,7 +32,7 @@ npm install --save puppeteer-render-text
 ```js
 const renderText = require('puppeteer-render-text')
 
-// render built-in font with no word-wrap
+// render text with built-in font and no word-wrap
 await renderText({
   text: 'hello world',
   output: 'out0.png',
@@ -42,7 +42,7 @@ await renderText({
   }
 })
 
-// render custom google font with word-wrap at 400px
+// render text with custom google font and word-wrap at 400px
 await renderText({
   text: 'headless chrome is awesome',
   output: 'out1.png',
@@ -52,6 +52,18 @@ await renderText({
     fontFamily: 'Roboto',
     fontSize: 32,
     padding: 16
+  }
+})
+
+// render html with custom google font and custom word-wrap at 100px
+await renderText({
+  text: 'headless <b>chrome</b> is <span style="color: red: font-style: italic;">awesome</span>',
+  output: 'out1.png',
+  loadGoogleFont: true,
+  width: 100,
+  style: {
+    fontFamily: 'Roboto',
+    overflowWrap: 'break-word'
   }
 })
 ```
