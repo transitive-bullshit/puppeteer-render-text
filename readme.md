@@ -25,6 +25,7 @@ ImageMagick is the traditional unix tool to programatically [render text](http:/
 -   styling is done via [**css**](https://www.w3schools.com/jsref/dom_obj_style.asp)
 -   handles multiple fonts
 -   thoroughly tested
+-   includes a [CLI](https://github.com/transitive-bullshit/puppeteer-render-text-cli)
 
 ## Install
 
@@ -105,6 +106,7 @@ Type: `function (opts): Promise`
 
 ## Related
 
+-   [puppeteer-render-text-cli](https://github.com/transitive-bullshit/puppeteer-render-text-cli) - CLI for this module.
 -   [puppeteer](https://github.com/GoogleChrome/puppeteer) - Headless Chrome Node API.
 -   [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) - Curated list of awesome puppeteer resources.
 

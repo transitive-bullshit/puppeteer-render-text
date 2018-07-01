@@ -27,7 +27,7 @@ const observer = `
  *
  * @param {object} opts - Configuration options
  * @param {string} opts.text - HTML content to render
- * @param {string} opts.output - Path of image file to output result
+ * @param {string} opts.output - Path of image file to store result
  * @param {number} [opts.width] - Optional max width for word-wrap
  * @param {number} [opts.height] - Optional max height to clip overflow
  * @param {string} [opts.loadFontFamily] - Optional font family to load with fontfaceobserver
