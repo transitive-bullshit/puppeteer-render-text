@@ -56,7 +56,7 @@ await renderText({
 })
 ```
 
-Note that all CSS styles are specified via the [JS CSS syntax](https://www.w3schools.com/jsref/dom_obj_style.asp), which uses camelCase instead of normal CSS hyphenated words. This is, for instance, what [React](https://reactjs.org/docs/dom-elements.html#style) uses for its inline styles.
+Note that all CSS styles are specified via the [JS CSS syntax](https://www.w3schools.com/jsref/dom_obj_style.asp), which uses camelCase instead of hyphens. This is, for instance, what [React](https://reactjs.org/docs/dom-elements.html#style) uses for its inline styles.
 
 ## API
 
