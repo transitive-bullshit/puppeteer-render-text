@@ -19,6 +19,9 @@ const observer = `
  *
  * Asynchronously returns the generated html page as a string for debugging purposes.
  *
+ * If you want to load multiple google fonts, juse specify their font-families in `opts.style.fontFamily`
+ * separated by commas as you normally would for CSS fonts.
+ *
  * @name renderText
  * @function
  *
