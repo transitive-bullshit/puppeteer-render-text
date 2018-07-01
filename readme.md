@@ -8,6 +8,8 @@
   <img width="502" alt="Logo" src="https://cdn.rawgit.com/transitive-bullshit/puppeteer-render-text/master/media/logo.png">
 </p>
 
+This module is also available as a [CLI](https://github.com/transitive-bullshit/puppeteer-render-text-cli).
+
 ## Why?
 
 ImageMagick is the traditional unix tool to programatically [render text](http://www.imagemagick.org/Usage/text/), and while it works very well for simple use cases, trying to use it to render rich text or html is very difficult. [Pango](https://www.pango.org/) is another option that's been around for ages, but both suffer from archaic syntax and minimal rich text support.
