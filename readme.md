@@ -4,6 +4,10 @@
 
 [![NPM](https://img.shields.io/npm/v/puppeteer-render-text.svg)](https://www.npmjs.com/package/puppeteer-render-text) [![Build Status](https://travis-ci.com/transitive-bullshit/puppeteer-render-text.svg?branch=master)](https://travis-ci.com/transitive-bullshit/puppeteer-render-text) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+<p align="center">
+  <img width="502" alt="Logo" src="https://cdn.rawgit.com/transitive-bullshit/puppeteer-render-text/master/media/logo.png">
+</p>
+
 ## Why?
 
 ImageMagick is the traditional unix tool to programatically [render text](http://www.imagemagick.org/Usage/text/), and while it works very well for simple use cases, trying to use it to render rich text or html is very difficult. [Pango](https://www.pango.org/) is another option that's been around for ages, but both suffer from archaic syntax and minimal rich text support.
