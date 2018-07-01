@@ -14,6 +14,29 @@ const observer = `
 </script>
 `
 
+/**
+ * Renders the given text / html via puppeteer.
+ *
+ * Asynchronously returns the generated html page as a string for debugging purposes.
+ *
+ * @name renderText
+ * @function
+ *
+ * @param {object} opts - Configuration options
+ * @param {string} opts.text - HTML content to render
+ * @param {string} opts.output - Path of image file to output result
+ * @param {number} [opts.width] - Optional max width for word-wrap
+ * @param {number} [opts.height] - Optional max height to clip overflow
+ * @param {string} [opts.loadFontFamily] - Optional font family to load with fontfaceobserver
+ * @param {boolean} [opts.loadGoogleFont=false] - Whether or not to load and wait for `opts.style.fontFamily` as one or more google fonts
+ * @param {object} [opts.style={}] - JS [CSS styles](https://www.w3schools.com/jsref/dom_obj_style.asp) to apply to the text's container div
+ * @param {object} [opts.inject={}] - Optionally injects arbitrary string content into the head, style, or body elements.
+ * @param {string} [opts.inject.head] - Optionally injected into the document <head>
+ * @param {string} [opts.inject.style] - Optionally injected into a <style> tag within the document <head>
+ * @param {string} [opts.inject.body] - Optionally injected into the document <body>
+ *
+ * @return {Promise}
+ */
 module.exports = async (opts) => {
   const {
     text,
