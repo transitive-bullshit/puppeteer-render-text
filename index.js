@@ -53,27 +53,36 @@ module.exports = async (opts) => {
   ow(text, ow.string.label('text'))
   ow(style, ow.object.plain.label('style'))
 
-  const { fontFamily } = style
+  const { fontFamily = '' } = style
 
   if (loadGoogleFont && !fontFamily) {
     throw new Error('valid style.fontFamily required when loading google font')
   }
 
+  const fonts = loadFontFamily
+    ? [ loadFontFamily ]
+    : loadGoogleFont
+      ? fontFamily.split(',').map((font) => font.trim())
+      : [ ]
+
   const fontHeader = loadFontFamily
     ? observer : (
       loadGoogleFont ? `
       ${observer}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=${fontFamily.replace(/ /g, '+')}">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=${fonts.map((font) => font.replace(/ /g, '+')).join('|')}">
     ` : ''
     )
-  const fontLoader = loadFontFamily || loadGoogleFont ? `
-    var font = new FontFaceObserver('${loadFontFamily || fontFamily}');
-    font.load().then(ready);
-  ` : 'ready();'
+
+  const fontsToLoad = fonts.map((font) => `new FontFaceObserver('${font}')`)
+  const fontLoader = fontsToLoad.length
+    ? `Promise.all([ ${fontsToLoad.join(', ')} ].map((f) => f.load())).then(ready);`
+    : 'ready();'
 
   const html = `
 <html>
 <head>
+  <meta charset="UTF-8">
+
   ${inject.head || ''}
   ${fontHeader}
 

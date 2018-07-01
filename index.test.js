@@ -110,3 +110,25 @@ test('"lots of words to wrap" test word wrapping', async (t) => {
   await rmfr(output0)
   await rmfr(output1)
 })
+
+test('"puppeteer-render-text 😊" html with multiple google fonts', async (t) => {
+  const output0 = tempy.file({ extension: 'png' })
+
+  await renderText({
+    text: 'puppeteer-<span style="font-family: \'Permanent Marker\'">render</span>-<span style="color: red">text</span> 😊',
+    output: output0,
+    style: {
+      fontFamily: 'Gloria Hallelujah, Permanent Marker',
+      fontSize: 40
+    },
+    loadGoogleFont: true
+  })
+
+  const image0 = await sharp(output0).metadata()
+  t.true(inDelta(image0.width, 502, 5))
+  t.true(inDelta(image0.height, 79, 3))
+  t.is(image0.channels, 4)
+  t.is(image0.format, 'png')
+
+  await rmfr(output0)
+})
