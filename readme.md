@@ -14,7 +14,7 @@ ImageMagick is the traditional unix tool to programatically [render text](http:/
 
 ## Features
 
-- built-in [fontfaceobserver](https://fontfaceobserver.com/) support
+- built-in [fontfaceobserver](https://fontfaceobserver.com/)
 - easily load [Google fonts](https://fonts.google.com/)
 - optional word-wrap
 - main context is just **html**
