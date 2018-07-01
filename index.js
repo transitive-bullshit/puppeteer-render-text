@@ -100,8 +100,8 @@ ${inject.body || ''}
 `
 
   // testing
-  const fs = require('fs')
-  fs.writeFileSync('test.html', html)
+  // const fs = require('fs')
+  // fs.writeFileSync('test.html', html)
 
   const browser = opts.browser || await puppeteer.launch({
     args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
