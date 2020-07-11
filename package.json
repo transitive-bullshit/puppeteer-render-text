@@ -6,6 +6,7 @@
   "repository": "transitive-bullshit/puppeteer-render-text",
   "author": "Travis Fischer <travis@automagical.ai>",
   "license": "MIT",
+  "reveal": true,
   "scripts": {
     "docs": "update-markdown-jsdoc --no-markdown-toc",
     "test": "ava -v && standard *.js"
