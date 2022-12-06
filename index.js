@@ -1,14 +1,14 @@
-'use strict'
+import fs from 'node:fs'
+import path from 'node:path'
+import url from 'node:url'
+import ow from 'ow'
+import puppeteer from 'puppeteer'
 
-const fs = require('fs')
-const ow = require('ow')
-const path = require('path')
-const puppeteer = require('puppeteer')
+import { cssifyObject } from 'css-in-js-utils'
 
-const { cssifyObject } = require('css-in-js-utils')
-
+const dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const observerScript = fs.readFileSync(
-  path.join(__dirname, 'lib', 'fontfaceobserver.standalone.js'),
+  path.join(dirname, 'lib', 'fontfaceobserver.standalone.js'),
   'utf8'
 )
 const observer = `
@@ -43,7 +43,7 @@ const observer = `
  *
  * @return {Promise}
  */
-module.exports = async (opts) => {
+export async function renderText(opts) {
   const {
     text,
     output,
@@ -55,9 +55,9 @@ module.exports = async (opts) => {
     inject = {}
   } = opts
 
-  ow(output, ow.string.nonEmpty.label('output'))
-  ow(text, ow.string.label('text'))
-  ow(style, ow.object.plain.label('style'))
+  ow(output, 'output', ow.string.nonEmpty)
+  ow(text, 'text', ow.string)
+  ow(style, 'style', ow.object.plain)
 
   const { fontFamily = '' } = style
 

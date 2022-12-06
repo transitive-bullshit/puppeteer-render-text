@@ -2,17 +2,36 @@
   "name": "puppeteer-render-text",
   "version": "1.0.3",
   "description": "Robust text renderer using headless chrome.",
-  "main": "index.js",
   "repository": "transitive-bullshit/puppeteer-render-text",
   "author": "Travis Fischer <travis@automagical.ai>",
   "license": "MIT",
-  "reveal": true,
-  "scripts": {
-    "docs": "update-markdown-jsdoc --no-markdown-toc",
-    "test": "ava -v && standard *.js"
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "default": "./index.js"
+    }
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "run-p test:*",
+    "test:unit": "ava",
+    "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
+  },
+  "dependencies": {
+    "css-in-js-utils": "^3.1.0",
+    "ow": "^1.1.0",
+    "puppeteer": "^19.3.0"
+  },
+  "devDependencies": {
+    "ava": "^5.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.0",
+    "rmfr": "^2.0.0",
+    "sharp": "^0.31.2",
+    "tempy": "^3.0.0"
   },
   "keywords": [
     "puppeteer",
@@ -25,18 +44,5 @@
     "image",
     "png",
     "fontfaceobserver"
-  ],
-  "devDependencies": {
-    "ava": "^0.25.0",
-    "rmfr": "^2.0.0",
-    "sharp": "^0.20.5",
-    "standard": "^11.0.0",
-    "tempy": "^0.2.1",
-    "update-markdown-jsdoc": "^1.0.6"
-  },
-  "dependencies": {
-    "css-in-js-utils": "^2.0.1",
-    "ow": "^0.6.0",
-    "puppeteer": "^1.5.0"
-  }
+  ]
 }
