@@ -2,7 +2,7 @@
 
 > Robust text renderer using headless chrome.
 
-[![NPM](https://img.shields.io/npm/v/puppeteer-render-text.svg)](https://www.npmjs.com/package/puppeteer-render-text) [![Build Status](https://travis-ci.com/transitive-bullshit/puppeteer-render-text.svg?branch=master)](https://travis-ci.com/transitive-bullshit/puppeteer-render-text) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/puppeteer-render-text.svg)](https://www.npmjs.com/package/chatgpt) [![Build Status](https://github.com/transitive-bullshit/puppeteer-render-text/actions/workflows/test.yml/badge.svg)](https://github.com/transitive-bullshit/puppeteer-render-text/actions/workflows/test.yml) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/transitive-bullshit/puppeteer-render-text/blob/main/license) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
 <p align="center">
   <img width="502" alt="Logo" src="https://cdn.rawgit.com/transitive-bullshit/puppeteer-render-text/master/media/logo.png">
@@ -20,25 +20,25 @@ ImageMagick is the traditional unix tool to programatically [render text](http:/
 
 ## Features
 
--   built-in [fontfaceobserver](https://fontfaceobserver.com/)
--   easily load [google fonts](https://fonts.google.com/)
--   optional word-wrap
--   main content is just **html**
--   styling is done via [**css**](https://www.w3schools.com/jsref/dom_obj_style.asp)
--   handles multiple fonts
--   thoroughly tested
--   includes a [CLI](https://github.com/transitive-bullshit/puppeteer-render-text-cli)
+- built-in [fontfaceobserver](https://fontfaceobserver.com/)
+- easily load [google fonts](https://fonts.google.com/)
+- optional word-wrap
+- main content is just **html**
+- styling is done via [**css**](https://www.w3schools.com/jsref/dom_obj_style.asp)
+- handles multiple fonts
+- thoroughly tested
+- includes a [CLI](https://github.com/transitive-bullshit/puppeteer-render-text-cli)
 
 ## Install
 
 ```bash
-npm install --save puppeteer-render-text
+npm install puppeteer-render-text
 ```
 
 ## Usage
 
 ```js
-const renderText = require('puppeteer-render-text')
+import { renderText } from 'puppeteer-render-text'
 
 // render text with built-in font and no word-wrap
 await renderText({
@@ -93,27 +93,27 @@ separated by commas as you normally would for CSS fonts.
 
 Type: `function (opts): Promise`
 
--   `opts` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Configuration options
-    -   `opts.text` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** HTML content to render
-    -   `opts.output` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Path of image file to output result
-    -   `opts.width` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Optional max width for word-wrap
-    -   `opts.height` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Optional max height to clip overflow
-    -   `opts.loadFontFamily` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optional font family to load with fontfaceobserver
-    -   `opts.loadGoogleFont` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether or not to load and wait for `opts.style.fontFamily` as one or more google fonts (optional, default `false`)
-    -   `opts.style` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** JS [CSS styles](https://www.w3schools.com/jsref/dom_obj_style.asp) to apply to the text's container div (optional, default `{}`)
-    -   `opts.inject` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Optionally injects arbitrary string content into the head, style, or body elements. (optional, default `{}`)
-        -   `opts.inject.head` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into the document <head>
-        -   `opts.inject.style` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into a <style> tag within the document <head>
-        -   `opts.inject.body` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into the document <body>
+- `opts` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Configuration options
+  - `opts.text` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** HTML content to render
+  - `opts.output` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Path of image file to output result
+  - `opts.width` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Optional max width for word-wrap
+  - `opts.height` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Optional max height to clip overflow
+  - `opts.loadFontFamily` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optional font family to load with fontfaceobserver
+  - `opts.loadGoogleFont` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether or not to load and wait for `opts.style.fontFamily` as one or more google fonts (optional, default `false`)
+  - `opts.style` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** JS [CSS styles](https://www.w3schools.com/jsref/dom_obj_style.asp) to apply to the text's container div (optional, default `{}`)
+  - `opts.inject` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Optionally injects arbitrary string content into the head, style, or body elements. (optional, default `{}`)
+    - `opts.inject.head` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into the document <head>
+    - `opts.inject.style` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into a <style> tag within the document <head>
+    - `opts.inject.body` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optionally injected into the document <body>
 
 ## Related
 
--   [puppeteer-render-text-cli](https://github.com/transitive-bullshit/puppeteer-render-text-cli) - CLI for this module.
--   [puppeteer](https://github.com/GoogleChrome/puppeteer) - Headless Chrome Node API.
--   [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) - Curated list of awesome puppeteer resources.
+- [puppeteer-render-text-cli](https://github.com/transitive-bullshit/puppeteer-render-text-cli) - CLI for this module.
+- [puppeteer](https://github.com/GoogleChrome/puppeteer) - Headless Chrome Node API.
+- [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) - Curated list of awesome puppeteer resources.
 
 ## License
 
-MIT © [Travis Fischer](https://github.com/transitive-bullshit)
+MIT © [Travis Fischer](https://transitivebullsh.it)
 
-Support my OSS work by <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
+If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/transitive-bullshit) or <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>

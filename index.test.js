@@ -1,19 +1,17 @@
-'use strict'
+import test from 'ava'
+import { temporaryFile } from 'tempy'
+import rmfr from 'rmfr'
+import sharp from 'sharp'
 
-const { test } = require('ava')
-const tempy = require('tempy')
-const rmfr = require('rmfr')
-const sharp = require('sharp')
+import { renderText } from './index.js'
 
-const renderText = require('.')
-
-function inDelta (actual, expected, delta) {
-  return (expected - delta <= actual && actual <= expected + delta)
+function inDelta(actual, expected, delta) {
+  return expected - delta <= actual && actual <= expected + delta
 }
 
 test('"hello world" builtin font', async (t) => {
-  const output0 = tempy.file({ extension: 'png' })
-  const output1 = tempy.file({ extension: 'png' })
+  const output0 = temporaryFile({ extension: 'png' })
+  const output1 = temporaryFile({ extension: 'png' })
 
   await renderText({
     text: 'hello world',
@@ -51,7 +49,7 @@ test('"hello world" builtin font', async (t) => {
 })
 
 test('"foobar > barfoo" google font Roboto', async (t) => {
-  const output0 = tempy.file({ extension: 'png' })
+  const output0 = temporaryFile({ extension: 'png' })
 
   await renderText({
     text: 'foobar > barfoo',
@@ -73,8 +71,8 @@ test('"foobar > barfoo" google font Roboto', async (t) => {
 })
 
 test('"lots of words to wrap" test word wrapping', async (t) => {
-  const output0 = tempy.file({ extension: 'png' })
-  const output1 = tempy.file({ extension: 'png' })
+  const output0 = temporaryFile({ extension: 'png' })
+  const output1 = temporaryFile({ extension: 'png' })
 
   // this version should wrap because we give it a max width
   await renderText({
@@ -112,7 +110,7 @@ test('"lots of words to wrap" test word wrapping', async (t) => {
 })
 
 test('"puppeteer-render-text 😊" html with multiple google fonts', async (t) => {
-  const output0 = tempy.file({ extension: 'png' })
+  const output0 = temporaryFile({ extension: 'png' })
 
   await renderText({
     text: 'puppeteer-<span style="font-family: \'Permanent Marker\'">render</span>-<span style="color: red">text</span> 😊',
