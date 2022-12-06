@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-render-text",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Robust text renderer using headless chrome.",
   "repository": "transitive-bullshit/puppeteer-render-text",
   "author": "Travis Fischer <travis@automagical.ai>",
