@@ -124,8 +124,8 @@ test('"puppeteer-render-text 😊" html with multiple google fonts', async (t) =
 
   const image0 = await sharp(output0).metadata()
   console.log(image0)
-  t.true(inDelta(image0.width, 502, 5))
-  t.true(inDelta(image0.height, 79, 3))
+  t.true(inDelta(image0.width, 502, 20))
+  t.true(inDelta(image0.height, 79, 5))
   t.is(image0.channels, 4)
   t.is(image0.format, 'png')
 
