@@ -158,7 +158,8 @@ ${inject.body || ''}
   await page.setViewport({
     deviceScaleFactor: 1,
     width: width || 640,
-    height: height || 480
+    height: height || 480,
+    deviceScaleFactor: 1
   })
   await page.setContent(html)
   await page.waitForSelector('.ready')
