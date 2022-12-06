@@ -143,7 +143,6 @@ ${inject.body || ''}
 `
 
   // testing
-  // const fs = require('fs')
   // fs.writeFileSync('test.html', html)
 
   const browser =
