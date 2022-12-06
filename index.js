@@ -166,9 +166,11 @@ ${inject.body || ''}
 
   const frame = page.mainFrame()
   const textHandle = await frame.$('.text')
+  const isPng = output.toLowerCase().endsWith('png')
   await textHandle.screenshot({
     path: output,
-    omitBackground: true
+    type: isPng ? 'png' : 'jpeg',
+    omitBackground: opts.omitBackground ?? (isPng ? true : false)
   })
   await textHandle.dispose()
   await browser.close()
