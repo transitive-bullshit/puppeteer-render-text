@@ -35,6 +35,7 @@ const observer = `
  * @param {number} [opts.height] - Optional max height to clip overflow
  * @param {string} [opts.loadFontFamily] - Optional font family to load with fontfaceobserver
  * @param {boolean} [opts.loadGoogleFont=false] - Whether or not to load and wait for `opts.style.fontFamily` as one or more google fonts
+ * @param {boolean} [opts.verbose=false] - Optional whether to log browser console messages
  * @param {object} [opts.style={}] - JS [CSS styles](https://www.w3schools.com/jsref/dom_obj_style.asp) to apply to the text's container div
  * @param {object} [opts.inject={}] - Optionally injects arbitrary string content into the head, style, or body elements.
  * @param {string} [opts.inject.head] - Optionally injected into the document <head>
@@ -51,6 +52,7 @@ export async function renderText(opts) {
     height = undefined,
     loadFontFamily = undefined,
     loadGoogleFont = false,
+    verbose = false,
     style = {},
     inject = {}
   } = opts
@@ -152,8 +154,10 @@ ${inject.body || ''}
     }))
   const page = await browser.newPage()
 
-  page.on('console', console.log)
-  page.on('error', console.error)
+  if (verbose) {
+    page.on('console', console.log)
+    page.on('error', console.error)
+  }
 
   await page.setViewport({
     deviceScaleFactor: 1,
